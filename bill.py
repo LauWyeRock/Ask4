@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 
 def convert_bills(file):
@@ -22,7 +23,7 @@ def convert_bills(file):
                 "Tax Included in Amount" : None,
                 'Total Amount (SGD)': df_cleaned['Amount'],
                 "Internal Notes": None,
-                "Amount Paid": None,
+                "Amount Paid": np.where(df_cleaned['Transaction Type'] == 'Bill',abs(df_cleaned['Open Balance'] - df_cleaned['Amount']), None),
                 "Payment Method": None,
                 "Payment Account": None,
                 "Payment Ref #": None,

@@ -12,7 +12,7 @@ def convert_journals(file):
 
 
     output_df = pd.DataFrame({
-                'Journal Reference': 'FYE2023 Conversion: Journal', #TransactionType, No. 
+                'Journal Reference': df_cleaned['No.'].fillna(""),
                 'Date': df_cleaned['Date'],
                 'Contact': df_cleaned['Name'],
                 'Account': df_cleaned['Account'],

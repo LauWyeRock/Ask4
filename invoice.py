@@ -19,7 +19,7 @@ def convert_invoices(file):
                 "Tax Included in Amount" : None,
                 'Total Amount (SGD)': df_cleaned['Amount'],
                 "Internal Notes": None,
-                "Amount Paid": None,
+                "Amount Paid": abs(df_cleaned['Balance']- df_cleaned['Amount']),
                 "Payment Method": None,
                 "Payment Account": None,
                 "Payment Ref #": None,
